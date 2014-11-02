@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-node["lwrp_dsl"]["run_list"].each do |resource, name_attribute, attributes = []|
+node["lwrpexec"]["run_list"].each do |resource, name_attribute, attributes = []|
   public_send(resource, name_attribute) do
     attributes.each do |name, *value|
       public_send(name, *value)

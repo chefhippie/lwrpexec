@@ -1,4 +1,4 @@
-lwrp_dsl Cookbook
+lwrpexec Cookbook
 =================
 This cookbook lets you run Resources/Providers in Chef via an attributes DSL.
 
@@ -9,7 +9,7 @@ This cookbook has no requirements.
 Attributes
 ----------
 
-#### lwrp_dsl::default
+#### lwrpexec::default
 <table>
   <tr>
     <th>Key</th>
@@ -27,14 +27,14 @@ Attributes
 
 Usage
 -----
-#### lwrp_dsl::default
+#### lwrpexec::default
 A classic example would be installing `grunt` or `bower`.
 To do that, normally you'd have to add the `nodejs` cookbook to your chef server and then create a new empty cookbook to access the `nodejs_npm` resource.
 This cookbook works around this pesky task, so instead you can just adjust your JSON-attributes (e.g. in Vagrant):
 
 ```ruby
 chef.json = {
-  "lwrp_dsl" => {
+  "lwrpexec" => {
     "run_list" => [
       ["nodejs_npm", "grunt"],
       ["nodejs_npm", "bower"]
@@ -54,7 +54,7 @@ You can also pass a Ruby-Hash as the third argument. It will be executed in the 
 
 ```ruby
 chef.json = {
-  "lwrp_dsl" => {
+  "lwrpexec" => {
     "run_list" => [
       [
         "docker_image", "webhippie/nginx", { 
@@ -99,7 +99,7 @@ we can use an array instead of a Ruby Hash as the following example shows.
 
 ```ruby
 chef.json = {
-  "lwrp_dsl" => {
+  "lwrpexec" => {
     "run_list" => [
       [
         "docker_container", "webhippie/nginx", [
